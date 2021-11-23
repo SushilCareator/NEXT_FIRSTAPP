@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 
 type Props = {};
 
@@ -9,6 +10,8 @@ let body = {
 };
 
 const RegisterMain: React.FC<Props> = ({}) => {
+    const routes = useRouter();
+
     const [name, setName] = useState("");
     const [dec, setDec] = useState("");
 
@@ -22,6 +25,8 @@ const RegisterMain: React.FC<Props> = ({}) => {
         });
 
         const data = await response.json();
+
+        routes.push("/");
 
         console.log(data);
     }
