@@ -31,6 +31,7 @@ const Home: React.FC<Props> = ({ dataFromDatabase, data }) => {
         const data = await response.json();
 
         console.log(data);
+        console.log(data.length);
     }
 
     return (
@@ -47,6 +48,7 @@ const Home: React.FC<Props> = ({ dataFromDatabase, data }) => {
                     <h4>{datas.desc}</h4>
                 </div>
             ))}
+            {data.length}
         </>
     );
 };
@@ -64,7 +66,7 @@ const Home: React.FC<Props> = ({ dataFromDatabase, data }) => {
 
 export async function getStaticProps(context: any) {
     const route = context.params;
-    console.log(route);
+    // console.log(route);
 
     const client = await MongoClient.connect(
         "mongodb+srv://susil:eANHXhY0HIvOIR3i@cluster0.z9lyl.mongodb.net/testnext?retryWrites=true&w=majority"
